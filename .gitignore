@@ -4,3 +4,4 @@
 crash.log
 *.log
 .terraform.lock.hcl
+.terraform.tsstate
