@@ -1,18 +1,20 @@
-.terraform/
 # Terraform working directory
 **/.terraform/
 
 # State files
 *.tfstate
-*.tfstate.*
+*.tfstate.backup
 
-# Crash log files
+# Sensitive variable files
+*.tfvars
+
+# Crash logs
 crash.log
 
-# Sensitive or temp files
-*.tfvars
-*.log
+# Provider plugins (large binaries)
+*.exe
+*.zip
+*.tar.gz
 
-# Optional
+# Lock file (optional)
 .terraform.lock.hcl
-
