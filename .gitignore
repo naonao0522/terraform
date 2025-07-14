@@ -1,3 +1,7 @@
+.terraform/
+.env/
+**/.terraform/
+
 # Terraform working directory
 **/.terraform/
 
