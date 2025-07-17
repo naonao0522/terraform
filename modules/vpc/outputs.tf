@@ -30,13 +30,21 @@ output "alb_subnet_ids" {
 #   ]
 # }
 
-output "private_a_subnet_id" {
-  value = aws_subnet.private_a_ecs.id
+output "private_subnets_id" {
+   value = [
+       aws_subnet.private_a_ecs.id,
+       aws_subnet.private_c_ecs.id
+   ]
 }
 
-output "public_a_subnet_id" {
-  value = aws_subnet.public_a_alb.id
-}
+# output "public_a_subnet_id" {
+#   value = aws_subnet.public_a_alb.id
+# }
 
+# # プライベートサブネットのリソースがあると仮定して出力する
+# output "private_subnets_id" {
+#   description = "List of private subnet IDs"
+#   value       = aws_subnet.private_a_ecs.id
+# }
 
 

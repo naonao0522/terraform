@@ -21,9 +21,14 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "subnet_id" {
-  type = list(string)
+variable "private_subnets_id" {
+  description = "List of private subnets for the ECS service"
+  type        = list(string)
 }
+
+# variable "subnet_id" {
+#   type = string
+# }
 
 variable "ecs_task_execution_role_arn" {
    type        = string
@@ -42,24 +47,8 @@ variable "desired_count" {
   type        = string
 }
 
-# variable "nginx_sg_id" {
-#   description = "The ECS cluster ID"
-#   type        = string
+# variable "security_group_ids" {
+#   description = "List of security group IDs for ECS tasks"
+#   type        = list(string)
 # }
-
-# variable "ecs_task_definition_arn" {
-#   description = "The ARN of the ECS Task Definition"
-#   type        = string
-# }
-
-# variable "ecs_cluster_id" {
-#   description = "The ARN of the ECS Task Definition"
-#   type        = string
-# }
-
-
-
-
-
-
 

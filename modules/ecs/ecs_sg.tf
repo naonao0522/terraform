@@ -1,6 +1,7 @@
 # セキュリティグループの作成
-resource "aws_security_group" "nginx_sg" {
+resource "aws_security_group" "ecs_sg" {
   name   = "${var.project}-${var.env}-ecs-sg"
+  description = "Security group for ECS"
   vpc_id = var.vpc_id
   ingress {
     from_port   = 80
@@ -22,4 +23,12 @@ resource "aws_security_group" "nginx_sg" {
     protocol    = "all"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  tags = {
+  Name = "${var.project}-${var.env}-ecs-sg"
+  }
+}
+
+# セキュリティグループIDの出力
+output "ecs_sg_id" {
+  value = aws_security_group.ecs_sg.id
 }

@@ -20,3 +20,24 @@ variable "vpc_cidr" {
   description = "The CIDR block for the VPC"
   type        = string
 }
+
+variable "security_group_ids" {
+  description = "List of security group IDs for ECS tasks"
+  type        = list(string)
+  default     = []
+}
+
+# variable "private_subnets_id" {
+#   description = "List of private subnet IDs"
+#   type        = list(string)
+# }
+
+# variable "private_a_ecs" {
+#   description = "ID of the private subnet for ECS"
+#   type        = object({
+#     id = string
+#   })
+# }
+
+
+

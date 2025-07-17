@@ -40,11 +40,11 @@ resource "aws_route_table_association" "public_d" {
   subnet_id      = aws_subnet.public_d_alb.id
 }
 
-# NATゲートウェイをパブリックルートテーブルに関連付け
-resource "aws_route_table_association" "public_a_ng" {
-  route_table_id = aws_route_table.public_ng.id
-  subnet_id      = aws_subnet.public_a_ng.id
-}
+# # NATゲートウェイをパブリックルートテーブルに関連付け
+# resource "aws_route_table_association" "public_a_ng" {
+#   route_table_id = aws_route_table.public_ng.id
+#   subnet_id      = aws_subnet.public_a_ng.id
+# }
 
 # プライベートルートテーブルの定義 (ECS用)
 resource "aws_route_table" "private_rt_ecs" {
@@ -60,3 +60,10 @@ resource "aws_route_table_association" "private_a" {
   route_table_id = aws_route_table.private_rt_ecs.id
   subnet_id      = aws_subnet.private_a_ecs.id
 }
+
+# プライベートサブネットCをプライベートルートテーブルに関連付け
+resource "aws_route_table_association" "private_c" {
+  route_table_id = aws_route_table.private_rt_ecs.id
+  subnet_id      = aws_subnet.private_c_ecs.id
+}
+

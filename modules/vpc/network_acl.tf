@@ -1,3 +1,5 @@
+# デフォルトでネットワークACLが 作成されているため、不要
+
 # resource "aws_network_acl" "main" {
 #   vpc_id       = aws_vpc.vpc.id
 

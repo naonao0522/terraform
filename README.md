@@ -30,6 +30,7 @@
 │   │   ├── igw.tf
 │   │   ├── eip.tf
 │   │   ├── ngw.tf
+│   │   ├── vpc_endpoint.tf
 │   │   ├── variables.tf
 │   │   └── security_group.tf
 │   └── ec2

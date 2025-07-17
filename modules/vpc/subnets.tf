@@ -1,3 +1,5 @@
+# サブネットの定義
+
 resource "aws_subnet" "public_a_alb" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = "10.0.1.0/24"
@@ -51,3 +53,18 @@ resource "aws_subnet" "private_a_ecs" {
     Name = "${var.project}-${var.env}-pri-a-ecs"
   }
 }
+
+resource "aws_subnet" "private_c_ecs" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = "10.0.6.0/24"
+  availability_zone       = "ap-northeast-1c" 
+  map_public_ip_on_launch = false
+  
+  tags = {
+    Name = "${var.project}-${var.env}-pri-c-ecs"
+  }
+}
+
+
+
+

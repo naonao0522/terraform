@@ -1,3 +1,5 @@
+# NATゲートウェイを使用しないため不要
+
 # resource "aws_eip" "nat_a" {
 #   domain        = "vpc"
 #   depends_on = [aws_internet_gateway.igw]
