@@ -26,7 +26,7 @@ resource "aws_ecs_task_definition" "fargate_task" {
       logConfiguration = { # ログ設定
         logDriver = "awslogs" # 使用するログドライバー
         options = {
-          "awslogs-group"         = "/aws/ecs/app-container" # CloudWatchロググループ名
+          "awslogs-group"         = "/aws/ecs/logs" # CloudWatchロググループ名
           "awslogs-region"        = "ap-northeast-1"
           "awslogs-stream-prefix" = "ecs"
         }

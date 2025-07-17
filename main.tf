@@ -1,11 +1,16 @@
 module "vpc" {
-  source = "./modules/vpc"
+  source   = "./modules/vpc"
   vpc_cidr = "10.0.0.0/16"
 }
 
+module "cloudwatch" {
+  source     = "./modules/cloudwatch"
+  depends_on = [module.ecs]
+}
+
 module "ec2" {
-  source = "./modules/ec2"
-  vpc_id = module.vpc.vpc_id
+  source         = "./modules/ec2"
+  vpc_id         = module.vpc.vpc_id
   alb_subnet_ids = module.vpc.alb_subnet_ids
 }
 

@@ -26,10 +26,6 @@ variable "private_subnets_id" {
   type        = list(string)
 }
 
-# variable "subnet_id" {
-#   type = string
-# }
-
 variable "ecs_task_execution_role_arn" {
    type        = string
 }

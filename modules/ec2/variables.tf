@@ -20,12 +20,3 @@ variable "alb_subnet_ids" {
   type        = list(string)
 }
 
-# output "nginx_sg_id" {
-#   value = aws_security_group.nginx_sg.id
-# }
-
-# variable "target_group_arn" {
-#   type = string
-#   description = "ALBのターゲットグループARN"
-# }
-
