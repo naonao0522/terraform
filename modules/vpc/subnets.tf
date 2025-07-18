@@ -65,6 +65,38 @@ resource "aws_subnet" "private_c_ecs" {
   }
 }
 
+resource "aws_subnet" "private_a_rds" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = "10.0.7.0/24"
+  availability_zone       = "ap-northeast-1a" 
+  map_public_ip_on_launch = false
+  
+  tags = {
+    Name = "${var.project}-${var.env}-private-1a-rds"
+  }
+}
+
+resource "aws_subnet" "private_c_rds" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = "10.0.8.0/24"
+  availability_zone       = "ap-northeast-1c" 
+  map_public_ip_on_launch = false
+  
+  tags = {
+    Name = "${var.project}-${var.env}-private-1c-rds"
+  }
+}
+
+resource "aws_subnet" "private_d_rds" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = "10.0.9.0/24"
+  availability_zone       = "ap-northeast-1d" 
+  map_public_ip_on_launch = false
+  
+  tags = {
+    Name = "${var.project}-${var.env}-private-1d-rds"
+  }
+}
 
 
 

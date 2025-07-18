@@ -30,3 +30,16 @@ module "ecs" {
   ecs_target_group_arn        = module.ec2.ecs_target_group_arn
   depends_on                  = [module.ec2]
 }
+
+module "us_east_1" {
+  source     = "./modules/us_east_1"
+  load_balancer_arn = module.ec2.load_balancer_arn
+#  cloudwatch_log_group_waflogs_arn = module.cloudwatch.cloudwatch_log_group_waflogs_arn
+  depends_on = [module.ec2]
+}
+
+module "rds" {
+  source     = "./modules/rds"
+  vpc_id         = module.vpc.vpc_id
+  rds_subnet_ids = module.vpc.rds_subnet_ids
+}
