@@ -7,7 +7,7 @@ resource "aws_subnet" "public_a_alb" {
   map_public_ip_on_launch = true
   
   tags = {
-    Name = "${var.project}-${var.env}-pub-a-alb"
+    Name = "${var.project}-${var.env}-public-1a-alb"
   }
 }
 resource "aws_subnet" "public_c_alb" {
@@ -17,7 +17,7 @@ resource "aws_subnet" "public_c_alb" {
   map_public_ip_on_launch = true
   
   tags = {
-    Name = "${var.project}-${var.env}-pub-c-alb"
+    Name = "${var.project}-${var.env}-public-1c-alb"
   }
 }
 
@@ -28,7 +28,7 @@ resource "aws_subnet" "public_d_alb" {
   map_public_ip_on_launch = false
   
   tags = {
-    Name = "${var.project}-${var.env}-pub-d-alb"
+    Name = "${var.project}-${var.env}-public-1d-alb"
   }
 }
 resource "aws_subnet" "public_a_ng" {
@@ -38,7 +38,7 @@ resource "aws_subnet" "public_a_ng" {
   map_public_ip_on_launch = false
   
   tags = {
-    Name = "${var.project}-${var.env}-pub-a-ng"
+    Name = "${var.project}-${var.env}-public-1a-ng"
   }
 }
 
@@ -50,7 +50,7 @@ resource "aws_subnet" "private_a_ecs" {
   map_public_ip_on_launch = false
   
   tags = {
-    Name = "${var.project}-${var.env}-pri-a-ecs"
+    Name = "${var.project}-${var.env}-private-1a-ecs"
   }
 }
 
@@ -61,7 +61,7 @@ resource "aws_subnet" "private_c_ecs" {
   map_public_ip_on_launch = false
   
   tags = {
-    Name = "${var.project}-${var.env}-pri-c-ecs"
+    Name = "${var.project}-${var.env}-private-1c-ecs"
   }
 }
 

@@ -3,7 +3,7 @@ resource "aws_route_table" "public" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    Name = "${var.project}-${var.env}-pub-alb-rt"
+    Name = "${var.project}-${var.env}-public-alb-rt"
   }
 }
 
@@ -11,7 +11,7 @@ resource "aws_route_table" "public_ng" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    Name = "${var.project}-${var.env}-pub-ng-rt"
+    Name = "${var.project}-${var.env}-public-ng-rt"
   }
 }
 
@@ -51,7 +51,7 @@ resource "aws_route_table" "private_rt_ecs" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    Name = "${var.project}-${var.env}-pri-ecs-rt"
+    Name = "${var.project}-${var.env}-pricate-ecs-rt"
   }
 }
 

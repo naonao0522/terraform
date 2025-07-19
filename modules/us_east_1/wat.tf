@@ -286,7 +286,7 @@ resource "aws_wafv2_web_acl" "wafv2_web_acl" {
 
   # IPSets allowリストのルール
   rule {
-    name     = "${var.project}-${var.env}-ipsets-white_list"
+    name     = "${var.project}-${var.env}-ipsets-white-list"
     priority = 5
 
     action {
@@ -332,16 +332,33 @@ resource "aws_wafv2_web_acl_association" "web_acl_association" {
   web_acl_arn  = aws_wafv2_web_acl.wafv2_web_acl.arn
 }
 
-# # WAFログを出力設定
-# resource "aws_cloudwatch_log_group" "waflogs" {
-#   name              = "/aws-waf-logs-${var.project}-${var.env}"
-#   retention_in_days = 30
+# resource "aws_cloudwatch_log_resource_policy" "waf_logs_policy" {
+#   policy_name = "AWS-WAF-Logging"
+#   policy_document = jsonencode({
+#     Version = "2012-10-17",
+#     Statement = [
+#       {
+#         Effect = "Allow",
+#         Principal = {
+#           Service = "waf.amazonaws.com"
+#         },
+#         Action = "logs:PutLogEvents",
+#         Resource = "arn:aws:logs:*:*:log-group:/aws-waf-logs-*:*"
+#       }
+#     ]
+#   })
 # }
 
-# # WAFログの設定
-# resource "aws_wafv2_web_acl_logging_configuration" "waflogs" {
-# # log_destination_configs = [var.cloudwatch_log_group_waflogs_arn]
-#   log_destination_configs = [aws_cloudwatch_log_group.waf_logs.arn]
-#  resource_arn            = aws_wafv2_web_acl.wafv2_web_acl.arn
-# }
+# WAFログを出力設定
+resource "aws_cloudwatch_log_group" "waflogs" {
+  name              = "aws-waf-logs-${var.project}"
+  retention_in_days = 30  
+}
+
+# WAFログの設定
+resource "aws_wafv2_web_acl_logging_configuration" "waflogs" {
+# log_destination_configs = [var.cloudwatch_log_group_waflogs_arn]
+log_destination_configs = [format("%s:*", aws_cloudwatch_log_group.waflogs.arn)]
+ resource_arn            = aws_wafv2_web_acl.wafv2_web_acl.arn
+}
 

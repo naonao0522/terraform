@@ -38,8 +38,8 @@ module "us_east_1" {
   depends_on = [module.ec2]
 }
 
-module "rds" {
-  source     = "./modules/rds"
-  vpc_id         = module.vpc.vpc_id
-  rds_subnet_ids = module.vpc.rds_subnet_ids
-}
+# module "rds" {
+#   source     = "./modules/rds"
+#   vpc_id         = module.vpc.vpc_id
+#   rds_subnet_ids = module.vpc.rds_subnet_ids
+# }
